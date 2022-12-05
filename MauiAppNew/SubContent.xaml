@@ -1,6 +1,69 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiAppNew.SubContent"
-             Style="{StaticResource SubContentStyle}">
-</ContentView>
+<?xml version="1.0" encoding="utf-8"?>
+
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      x:Class="MauiAppNew.SubContent"
+      StyleClass="blue">
+    <Grid.Resources>
+        <StyleSheet>
+            <![CDATA[
+            .red label, .red span{
+                color: red;
+                background-color:green;
+            }
+
+            .red label.red2{
+                color: white;
+                background-color: red;
+            }
+            .blue label{
+                color: blue;
+                background-color: white;
+            }
+            ]]>
+        </StyleSheet>
+    </Grid.Resources>
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <ColumnDefinition />
+        <ColumnDefinition />
+    </Grid.ColumnDefinitions>
+    <Label StyleClass="red2">
+        <Label.FormattedText>
+            <FormattedString>
+                <Span>Formatted directly in Grid</Span>
+            </FormattedString>
+        </Label.FormattedText>
+    </Label>
+    <ContentView Grid.Column="1" ControlTemplate="{StaticResource SubContentTemplate}" />
+    <Button Grid.Column="2" Clicked="Button_OnClicked" Text="State"></Button>
+    <ContentView Grid.Column="3" x:Name="Content">
+        <ContentView.Style>
+            <Style TargetType="ContentView">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding BindingContext.Good, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}" Value="True" TargetType="ContentView">
+                        <Setter Property="ControlTemplate">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <HorizontalStackLayout>
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span>Hi,</Span>
+                                                    <Span>Formatted in trigger</Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label>Plain</Label>
+                                    </HorizontalStackLayout>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ContentView.Style>
+    </ContentView>
+</Grid>

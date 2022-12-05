@@ -19,7 +19,11 @@ public partial class MainPage : ContentPage
             {
                 Header = new SubContent()
             };
-            (contentHolder.Header as SubContent).BindingContext = new { Text = str };
+            (contentHolder.Header as SubContent).BindingContext = new
+            {
+                Text = str,
+                Good = count++ % 2 == 1
+            };
             return contentHolder;
         });
     }

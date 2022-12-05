@@ -13,6 +13,18 @@
         </Setter>
     </Style>
 
+    <ControlTemplate x:Key="SubContentTemplate">
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span>SubContent 2</Span>
+                    <Span Text="{Binding BindingContext.Text, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}"/>
+                    <Span Text="{Binding BindingContext.Good, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </ControlTemplate>
+
     <!--
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />

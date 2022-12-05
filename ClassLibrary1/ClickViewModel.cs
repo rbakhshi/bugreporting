@@ -36,7 +36,7 @@ namespace MauiAppNew.Library
             {
                 SetField(ref _count, value);
                 Content = _contentBuilder();
-                OnPropertyChanged(nameof(Content));
+                OnPropertyChanged("");
             }
         }
 
