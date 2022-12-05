@@ -29,8 +29,9 @@
         <ColumnDefinition />
         <ColumnDefinition />
         <ColumnDefinition />
+        <ColumnDefinition />
     </Grid.ColumnDefinitions>
-    <Label StyleClass="red2">
+    <Label>
         <Label.FormattedText>
             <FormattedString>
                 <Span>Formatted directly in Grid</Span>
@@ -47,17 +48,7 @@
                         <Setter Property="ControlTemplate">
                             <Setter.Value>
                                 <ControlTemplate>
-                                    <HorizontalStackLayout>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span>Hi,</Span>
-                                                    <Span>Formatted in trigger</Span>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label>Plain</Label>
-                                    </HorizontalStackLayout>
+                                    <Label>Triggered - Plain</Label>
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
@@ -66,4 +57,5 @@
             </Style>
         </ContentView.Style>
     </ContentView>
+    <Label Grid.Column="4">Plain at root</Label>
 </Grid>
