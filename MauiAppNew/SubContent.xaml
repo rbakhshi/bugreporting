@@ -2,14 +2,13 @@
 
 <Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-      x:Class="MauiAppNew.SubContent"
-      StyleClass="blue">
+      x:Class="MauiAppNew.SubContent">
     <Grid.Resources>
-        <StyleSheet>
+        <!--<StyleSheet>
             <![CDATA[
             .red label, .red span{
                 color: red;
-                background-color:green;
+                background-color:@my-green;
             }
 
             .red label.red2{
@@ -21,7 +20,8 @@
                 background-color: white;
             }
             ]]>
-        </StyleSheet>
+        </StyleSheet>-->
+
     </Grid.Resources>
 
     <Grid.ColumnDefinitions>
@@ -31,13 +31,7 @@
         <ColumnDefinition />
         <ColumnDefinition />
     </Grid.ColumnDefinitions>
-    <Label>
-        <Label.FormattedText>
-            <FormattedString>
-                <Span>Formatted directly in Grid</Span>
-            </FormattedString>
-        </Label.FormattedText>
-    </Label>
+    <Label class="Selectable">Plain</Label>
     <ContentView Grid.Column="1" ControlTemplate="{StaticResource SubContentTemplate}" />
     <Button Grid.Column="2" Clicked="Button_OnClicked" Text="State"></Button>
     <ContentView Grid.Column="3" x:Name="Content">
@@ -48,7 +42,16 @@
                         <Setter Property="ControlTemplate">
                             <Setter.Value>
                                 <ControlTemplate>
-                                    <Label>Triggered - Plain</Label>
+                                    <Label class="Selectable" x:Name="title">Triggered - Plain</Label>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding BindingContext.Good, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}" Value="True" TargetType="ContentView">
+                        <Setter Property="ControlTemplate">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Label class="Selectable" x:Name="title" IsVisible="False"></Label>
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>

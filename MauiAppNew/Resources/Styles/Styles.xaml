@@ -1,8 +1,32 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xaml-comp compile="true" ?>
-<ResourceDictionary 
+
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mauiAppNew="clr-namespace:MauiAppNew"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <Style TargetType="Label" Class="Selectable">
+        <Setter Property="BackgroundColor" Value="Yellow"></Setter>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup Name="Test">
+                    <VisualState Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="Label.TextColor" Value="Green"></Setter>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="Label.TextColor" Value="Red"></Setter>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <Color x:Key="my-green">#50ff50</Color>
 
     <!--The only style in this code-->
     <Style TargetType="ContentView" x:Key="SubContentStyle">
@@ -18,8 +42,10 @@
             <Label.FormattedText>
                 <FormattedString>
                     <Span>SubContent 2</Span>
-                    <Span Text="{Binding BindingContext.Text, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}"/>
-                    <Span Text="{Binding BindingContext.Good, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}"/>
+                    <Span
+                        Text="{Binding BindingContext.Text, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}" />
+                    <Span
+                        Text="{Binding BindingContext.Good, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}" />
                 </FormattedString>
             </Label.FormattedText>
         </Label>
