@@ -10,7 +10,7 @@
              x:Class="MauiAppNew.MainPage">
     <ContentPage.Resources>
         <ControlTemplate x:Key="DynamicContent">
-            <ContentView Content="{Binding BindingContext.Content.Header, Source={RelativeSource AncestorType={x:Type ContentPage}}}"></ContentView>
+            <ContentView Content="{Binding BindingContext.ContentHeader, Source={RelativeSource AncestorType={x:Type ContentPage}}}"></ContentView>
         </ControlTemplate>
         
         <!--
