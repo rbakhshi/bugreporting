@@ -3,42 +3,87 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:library="clr-namespace:MauiAppNew.Library;assembly=ClassLibrary1"
              xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+             xmlns:mauiAppNew="clr-namespace:MauiAppNew"
+             xmlns:classLibrary1="clr-namespace:ClassLibrary1;assembly=ClassLibrary1"
              x:DataType="library:ClickViewModel"
+             x:Name="Control"
              x:Class="MauiAppNew.MainPage">
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="DynamicContent">
+            <ContentView Content="{Binding BindingContext.Content.Header, Source={RelativeSource AncestorType={x:Type ContentPage}}}"></ContentView>
+        </ControlTemplate>
+        
+        <!--
+        <ControlTemplate x:Key="DynamicContent">
+            <ContentView BindingContext="{Binding BindingContext, Source={RelativeSource AncestorType={x:Type ContentPage}}}">
+                <ContentView Content="{Binding ContentHeader}"/>
+            </ContentView>
+        </ControlTemplate>-->
+    </ContentPage.Resources>
 
+    <!--<mauiAppNew:MyWebView x:Name="webview"></mauiAppNew:MyWebView>-->
+    <!--<WebView x:Name="webview">
+        <WebView.Source>
+            <HtmlWebViewSource>
+                <HtmlWebViewSource.Html>
+                    <![CDATA[
+                    <script type="text/javascript">document.location = 'web/index.html'</script>
+                        ]]>
+                </HtmlWebViewSource.Html>
+
+            </HtmlWebViewSource>
+        </WebView.Source>
+    </WebView>-->
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-
+    
             <Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
-
+    
             <Label
                 Text="Hello, World!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
-
+    
             <Label
                 Text="Welcome to .NET Multi-platform App UI"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
-
+    
             <Button
                 Text="{Binding Text}"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Command="{Binding ClickCommand}"
                 HorizontalOptions="Center" />
-
-            <ContentView Content="{Binding Content.Header}"></ContentView>
-
+    
+            <ContentView>
+                <ContentView.Style>
+                    <Style TargetType="ContentView">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsEvent}" Value="True" TargetType="ContentView">
+                                <Setter Property="ControlTemplate">
+                                    <Setter.Value>
+                                        <ControlTemplate><Button Text="Is Even"></Button></ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsEvent}" Value="False" TargetType="ContentView">
+                                <Setter Property="ControlTemplate" Value="{StaticResource DynamicContent}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentView.Style>
+            </ContentView>
+    
         </VerticalStackLayout>
     </ScrollView>
 

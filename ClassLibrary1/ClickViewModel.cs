@@ -28,6 +28,8 @@ namespace MauiAppNew.Library
 
         public ContentHolder? Content { get; set; }
 
+        public object ContentHeader => Content?.Header;
+
         public int Count
         {
             get => _count;
@@ -39,6 +41,8 @@ namespace MauiAppNew.Library
                 OnPropertyChanged("");
             }
         }
+
+        public bool IsEvent => Count % 2 == 0;
 
         public string Text
         {

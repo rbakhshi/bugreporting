@@ -21,10 +21,28 @@
             }
             ]]>
         </StyleSheet>-->
-
+        <Style TargetType="Label" Class="Selectable">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup Name="Test">
+                        <VisualState Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Label.TextColor" Value="Green"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="Label.TextColor" Value="Red"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
     </Grid.Resources>
 
     <Grid.ColumnDefinitions>
+        <ColumnDefinition />
         <ColumnDefinition />
         <ColumnDefinition />
         <ColumnDefinition />
@@ -47,7 +65,7 @@
                             </Setter.Value>
                         </Setter>
                     </DataTrigger>
-                    <DataTrigger Binding="{Binding BindingContext.Good, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}" Value="True" TargetType="ContentView">
+                    <DataTrigger Binding="{Binding BindingContext.Good, Source={RelativeSource FindAncestor, AncestorType={Type Grid}}}" Value="False" TargetType="ContentView">
                         <Setter Property="ControlTemplate">
                             <Setter.Value>
                                 <ControlTemplate>
@@ -61,4 +79,11 @@
         </ContentView.Style>
     </ContentView>
     <Label Grid.Column="4">Plain at root</Label>
+    <ContentView Grid.Column="5">
+        <ContentView.ControlTemplate>
+            <ControlTemplate>
+                <Label class="Selectable">Test2</Label>
+            </ControlTemplate>
+        </ContentView.ControlTemplate>
+    </ContentView>
 </Grid>

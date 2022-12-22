@@ -1,5 +1,7 @@
 ﻿using ClassLibrary1;
 using MauiAppNew.Library;
+using Microsoft.Maui.Controls.PlatformConfiguration;
+using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
 
 namespace MauiAppNew;
 

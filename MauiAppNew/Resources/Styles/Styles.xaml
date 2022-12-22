@@ -7,25 +7,6 @@
     xmlns:mauiAppNew="clr-namespace:MauiAppNew"
     xmlns:system="clr-namespace:System;assembly=System.Runtime">
 
-    <Style TargetType="Label" Class="Selectable">
-        <Setter Property="BackgroundColor" Value="Yellow"></Setter>
-        <Setter Property="VisualStateManager.VisualStateGroups">
-            <VisualStateGroupList>
-                <VisualStateGroup Name="Test">
-                    <VisualState Name="Normal">
-                        <VisualState.Setters>
-                            <Setter Property="Label.TextColor" Value="Green"></Setter>
-                        </VisualState.Setters>
-                    </VisualState>
-                    <VisualState Name="Selected">
-                        <VisualState.Setters>
-                            <Setter Property="Label.TextColor" Value="Red"></Setter>
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateGroupList>
-        </Setter>
-    </Style>
     <Color x:Key="my-green">#50ff50</Color>
 
     <!--The only style in this code-->
