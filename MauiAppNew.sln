@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiAppNew", "MauiAppNew\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{A07990C5-3E71-464F-92DD-228805EF5DE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp2", "MauiApp2\MauiApp2.csproj", "{675886DB-8BB8-443F-B37A-4A6A35AA5F4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{A07990C5-3E71-464F-92DD-228805EF5DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A07990C5-3E71-464F-92DD-228805EF5DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A07990C5-3E71-464F-92DD-228805EF5DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675886DB-8BB8-443F-B37A-4A6A35AA5F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675886DB-8BB8-443F-B37A-4A6A35AA5F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675886DB-8BB8-443F-B37A-4A6A35AA5F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675886DB-8BB8-443F-B37A-4A6A35AA5F4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
